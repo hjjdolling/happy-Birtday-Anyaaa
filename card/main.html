@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome</title>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    input[type="password"] {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 20px;
+      width: 200px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff6b9d;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e0558b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Enter Your Special Date</h1>
+    <p>Hint: Format tanggal lahir kamu (DDMMYY)</p>
+    <input type="password" id="password" placeholder="e.g. ******"/>
+    <br/>
+    <button onclick="checkPassword()">Enter</button>
+  </div>
+
+  <script>
+    function checkPassword() {
+      var input = document.getElementById('password').value;
+      if (input === "080707") {
+        window.location.href = "index(2).html";
+      } else {
+        alert("Incorrect password. Please try again!");
+      }
+    }
+  </script>
+</body>
+</html>

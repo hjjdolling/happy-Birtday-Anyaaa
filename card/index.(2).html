@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Anya</title>
+
+  <link rel="icon" href="Favicon.png " type="imgage/png">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #ffcce6, #f9d5e5, #e2b0ff);
+      text-align: center;
+      color: #6a1b4d;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4em;
+      margin-top: 40px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      animation: fadeIn 2s ease-in-out;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: slideUp 1.5s ease-in-out;
+    }
+    .photo-gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 30px auto;
+      max-width: 800px;
+    }
+    .photo-gallery img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .photo-gallery img:hover {
+      transform: scale(1.05);
+    }
+    .button-container {
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 10;
+    }
+    .button, .wa-button {
+      background-color: #ff6b9d;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1em;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 20px 10px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover, .wa-button:hover {
+      background-color: #e0558b;
+    }
+    .music-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff6b9d;
+      border-radius: 50%;
+      padding: 12px;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .music-control:hover {
+      opacity: 1;
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    .secret-message {
+      display: none;
+      margin: 20px auto;
+      padding: 25px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      animation: fadeInScale 0.5s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInScale {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.5em; }
+      .button, .wa-button { padding: 12px 20px; }
+      .music-control { bottom: 15px; right: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday, Anyaaa</h1>
+  <p>
+    You are the most beautiful person in my life.<br />
+    Today and every day, I celebrate you and the love we share.<br />
+    Wishing you a day as wonderful as you are! <br />
+    tetaplah semangat dalam proses yang lama ini,jangan pernah menyerah<br />
+    terus melangkah maju sampai kamu menemukan bukti yang kamu mau
+  </p>
+
+  <div class="photo-gallery">
+    <img src="foto1.jpg" alt="Our memories">
+    <img src="Foto2.jpg" alt="Our memories">
+    <img src="foto3.jpg " alt="Our memories">
+  </div> 
+  <div class="button-container">
+    <button class="button" onclick="replayMessage()">Replay Sweet Message</button>
+    <button class="button" onclick="showSecretMessage()">Secret Message</button>
+    <a href="https://wa.me/6285759840740?text=Happy%20Birthday%20Love%2C%20this%20page%20is%20amazing!" target="_blank">
+      <button class="wa-button">Reply on WhatsApp</button>
+    </a>
+  </div>
+
+  <div id="secret-message" class="secret-message">
+    <h3 style="color: #d23369; margin-top: 0;">💝 For You Only 💝</h3>
+    <p>
+      "Aku tak perlu menamai rasa ini, sebab ia tumbuh seperti akar di tanah yang diam-diam merindukan hujan tanpa suara, tapi pasti.<br>
+     Kita bukan cerita yang diceritakan keras-keras, melainkan sajak yang dibisikkan angin kepada daun yang tak sempat gugur karena ingin tinggal sedikit lebih lama."<br>
+      <span style="font-style: italic; display: block; margin-top: 10px;">- forever</span>
+    </p>
+    <button class="button" onclick="hideSecretMessage()" 
+            style="background-color: #d23369; margin-top: 15px;">
+      Tutup Pesan
+    </button>
+  </div>
+
+  <div class="music-control">
+    <audio id="bg-music" controls loop>
+      <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <script>
+    function replayMessage() {
+      alert("Happy Birthday again, my love! You mean everything to me.");
+    }
+
+    function showSecretMessage() {
+      const secretMessage = document.getElementById('secret-message');
+      secretMessage.style.display = 'block';
+      secretMessage.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function hideSecretMessage() {
+      document.getElementById('secret-message').style.display = 'none';
+    }
+
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    let confettis = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function createConfetti() {
+      for (let i = 0; i < 150; i++) {
+        confettis.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 8 + 2,
+          d: Math.random() * 50,
+          color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+          tilt: Math.floor(Math.random() * 10) - 5,
+          shape: Math.random() > 0.5 ? 'circle' : 'rectangle'
+        });
+      }
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confettis.forEach((c) => {
+        ctx.beginPath();
+        ctx.fillStyle = c.color;
+        if (c.shape === 'circle') {
+          ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+        } else {
+          ctx.rect(c.x, c.y, c.r * 1.5, c.r);
+        }
+        ctx.fill();
+      });
+      updateConfetti();
+      requestAnimationFrame(drawConfetti);
+    }
+
+    function updateConfetti() {
+      confettis.forEach((c) => {
+        c.y += Math.cos(c.d) + 1 + c.r / 2;
+        c.x += Math.sin(c.d) * 0.5;
+        if (c.y > canvas.height) {
+          c.y = -10;
+          c.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    document.addEventListener('click', function() {
+      const audio = document.getElementById('bg-music');
+      audio.play().catch(e => console.log("Auto-play prevented"));
+    }, { once: true });
+
+    createConfetti();
+    drawConfetti();
+  </script>
+</body>
+</html>
